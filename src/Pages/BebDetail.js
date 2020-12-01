@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
       aspectRatio:1,  
       borderRadius:20,
       marginTop:10,
-      marginLeft:11,
+      alignSelf:'center',
   },
   infos:{
     backgroundColor:"#bac3cc",

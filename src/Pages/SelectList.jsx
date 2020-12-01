@@ -14,16 +14,15 @@ function SelectList({navigation}) {
             <>
                 <TouchableHighlight onPress={()=>{
                 navigation.push("Lista de Pizzas")}}>
-                    <View >
+                    <View style={style.container}>
                         <Text style={style.titulo}>Pizza</Text>
-                    <Image source={{uri: icon2}} style={style.img} />
-                   
+                        <Image source={{uri: icon2}} style={style.img} />
                     </View>
                 </TouchableHighlight>
                 <br/>
-                <TouchableHighlight onPress={()=>{
+                <TouchableHighlight  onPress={()=>{
             navigation.push("Lista de Bebidas")}}>
-                    <View>
+                    <View style={style.container}>
                         <Text style={style.titulo}>Bebidas</Text>
                         <Image source={{uri: icon}} style={style.img} />
                     </View>
@@ -40,7 +39,7 @@ function SelectList({navigation}) {
       <>
     <ScrollView>
         <View>
-            <Botoes/>
+            <Botoes />
         </View>
     </ScrollView>
     </>
@@ -51,7 +50,7 @@ function SelectList({navigation}) {
 const style = StyleSheet.create({
   
     img:{
-        marginLeft: 110,
+        alignSelf:'center',
         marginTop:20,
         width:100,
         height: 100,
@@ -63,6 +62,12 @@ const style = StyleSheet.create({
         display:'flex',
         justifyContent: 'center',
         fontSize:30,
+    },
+    container:{
+        backgroundColor: "#b07471",
+        display: 'flex',
+        justifyContent: 'center',
+        padding:5,
     }
 })
 

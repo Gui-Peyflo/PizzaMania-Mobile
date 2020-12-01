@@ -1,23 +1,26 @@
 import React from 'react'
-import {View,Text,Image,StyleSheet, TouchableHighlight, Button} from 'react-native'
+import {View,Text,Image,StyleSheet, TouchableHighlight, Button, ActivityIndicator} from 'react-native'
 
 function BebList(props){
+    let loading = true;
   
       const textElement =  props.b.map((bebida) => {
         return (
-        <TouchableHighlight onPress={()=>{
-            props.nextScreen.navigate("BebDetail", {bebida})
-        }} key={bebida.id}> 
-            <View style={styles.container}>
-                <Image source={{uri: bebida.imagem}} style={styles.foto}/>
-                <Text style={styles.text} >{`${bebida.bebida}`}</Text>
-            </View>
-        </TouchableHighlight>   
+            loading = false,
+
+            <TouchableHighlight onPress={()=>{
+                props.nextScreen.navigate("BebDetail", {bebida})
+            }} key={bebida.id}> 
+                <View style={styles.container}>
+                    <Image source={{uri: bebida.imagem}} style={styles.foto}/>
+                    <Text style={styles.text} >{`${bebida.bebida}`}</Text>
+                </View>
+            </TouchableHighlight>   
         )
       });
       return( 
           <View>
-             
+             {loading && <ActivityIndicator size="large" style={styles.load} animating={loading}/>}
             {textElement}
           </View>
       );
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
         height:50,
         aspectRatio:1,  
         borderRadius: 50,
+      
     },
     container:{
           backgroundColor: '#b07471',

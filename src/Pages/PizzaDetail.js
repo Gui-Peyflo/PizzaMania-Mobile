@@ -7,9 +7,11 @@ function PizzaDetail({route}) {
   const {pizza} = route.params;
   console.log(pizza);
   return (
-    <ScrollView>
-      <Image source={{uri: pizza.imagem}} style={styles.foto}></Image>
-      <DataPizzas pizza={pizza.pizza} valor={pizza.preço} desc={pizza.descrição} />
+    <ScrollView >
+      <View >
+        <Image source={{uri: pizza.imagem}} style={styles.foto}></Image>
+        <DataPizzas pizza={pizza.pizza} valor={pizza.preço} desc={pizza.descrição} />
+      </View>
     </ScrollView>
   );
 }
@@ -17,12 +19,14 @@ function PizzaDetail({route}) {
 
 const styles = StyleSheet.create({
   foto:{
+
       width: 300,
       height:300,
       aspectRatio:1,  
       borderRadius:20,
       marginTop:10,
-      marginLeft:11,
+      alignSelf:'center',
+      
   },
   infos:{
     backgroundColor:"#bac3cc",
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
   },
   container:{
     display: "flex",
-    justifyContent: "center",
+   
     padding: 20,
   },
   subTitles:{
